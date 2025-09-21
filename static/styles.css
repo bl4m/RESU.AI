@@ -1,0 +1,158 @@
+.toony-header {
+    background: linear-gradient(120deg, #efeaff 35%, #ada7ff 100%);
+    padding-top: 3em;
+    text-align: center;
+    font-family: 'Bungee', 'Fredoka One', cursive, sans-serif;
+    border-bottom: 6px dashed #ffd700;
+    position: relative;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.resu { color: #3E3F29; }
+.ai   { color: #6B5CFF; }
+
+.college-badge {
+    display: inline-block;
+    background: #ffe775;
+    color: #3E3F29;
+    border-radius: 20px;
+    font-family: 'Fredoka One', 'Bungee', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 1em;
+    padding: 6px 20px;
+    box-shadow: 2px 3px 12px #b0a8c1aa;
+    letter-spacing: 1px;
+}
+.subtitle { color: #5d45d7; margin-bottom: 0.3em; }
+.tagline { color: #393366; font-size: 1.3em; }
+.card-row { display: flex; gap:2em; justify-content:center; margin: 3em 0;}
+.card {
+    background: #fff;
+    color: #201c1c;
+    border-radius: 25px;
+    box-shadow: 3px 8px 25px #7b68ee33;
+    padding: 1.8em 2.2em;
+    min-width: 250px;
+    max-width: 340px;
+    font-family: 'Fredoka One', sans-serif;
+}
+.bubble {
+    border: 2px dashed #ffd700;
+}
+.speech-bubble {
+    background: #fff9bb; color: #222;
+    border-radius: 30px 30px 40px 10px/20px 30px 40px 10px;
+    padding: 1.3em 2em 1em 2em;
+    box-shadow: 2px 6px 18px #bfbfbf22;
+    margin: auto;
+    width: 80%; font-size: 1.15em;
+    font-family: 'Fredoka One', 'Bungee', sans-serif;
+    font-weight: 100;
+}
+footer {
+    font-family: 'Fredoka One', 'Bungee', sans-serif;
+    font-weight: 100;
+    text-align: center;
+}
+
+.footer-cartoon { font-size: 2em; margin: 0.7em 0;}
+
+.resume-form {
+    background: transparent;
+    margin-bottom: 2em;
+}
+.upload-btn {
+    background: #ffd700;
+    color: #3E3F29;
+    border: none;
+    border-radius:
+    30px;
+    padding: 12px 34px;
+    font-family: 'Fredoka One', cursive, sans-serif;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 1em;
+    box-shadow: 0 2px 12px #00000010;
+}
+.upload-btn:hover { background: #6B5CFF; color: #fff; }
+
+input[type="text"], input[type="file"] {
+    width: 94%;
+    margin: 1em auto 0.7em auto;
+    display:block;
+    padding: 8px 14px;
+    border-radius: 16px;
+    border: 1px solid #b8b8f8;
+    background: #f7f7ff;
+    color: #211;
+    font-size: 1em;
+    font-family: inherit;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    background: #ffd700;
+    color: #3E3F29;
+    border-radius: 20px;
+    font-family: 'Fredoka One', cursive, sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: 2px solid #ffd700;
+    padding: 10px 32px;
+    transition: background 0.22s, color 0.22s;
+    cursor: pointer;
+    margin-right: 20px;
+}
+input[type="file"]::-webkit-file-upload-button:hover {
+    background: #6B5CFF;
+    color: #fff;
+    border-color: #6B5CFF;
+}
+
+.loading-anim {
+    margin: 2em auto;
+    font-family: 'Fredoka One', cursive, sans-serif;
+    font-size: 1.5em;
+    color: #6B5CFF;
+    background: rgba(255,255,255,.8);
+    padding: 1em 2.5em;
+    border-radius: 18px;
+    box-shadow: 0 3px 18px #bbaaff44;
+    text-align: center;
+    letter-spacing: 1.5px;
+    min-width: 140px;
+    max-width: 300px;
+    position: relative;
+}
+
+.bounce-dots {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    margin-top: 1em;
+    height: 32px;
+    gap: 0.5em;
+}
+.bounce-dots .dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin: 0 4px;
+    background: #ffd700;
+    display: inline-block;
+    animation: bounce 0.95s infinite;
+    animation-delay: calc(var(--i) * 0.14s);
+    box-shadow: 0 4px 14px #9f95ff33, 0 1px 1px #f9f1c033;
+}
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+        filter: hue-rotate(0deg);
+    }
+    50% {
+        transform: translateY(-22px) scale(1.14);
+        filter: hue-rotate(-50deg);
+    }
+}

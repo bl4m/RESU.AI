@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resu.AI</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka+One&display=swap">
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <header class="toony-header">
+        <h1>
+            <span class="resu">Resu</span>.<span class="ai">AI</span>
+        </h1>
+        <div class="college-badge">🚀 Built by a First-Year College Student!</div>
+        <h2 class="subtitle">Turn your beginner resume into a hero resume.</h2>
+        <p class="tagline">Fun, fast & friendly AI feedback – like a career buddy for your CV!</p>
+        <form class="resume-form" id="resume-form" enctype="multipart/form-data" method="post">
+            <input type="file" name="resume" accept="application/pdf" required>
+            <input type="text" name="target_job" placeholder="Dream Job? (Optional)">
+            <button type="submit" class="upload-btn">🎉 Upload Resume</button>
+        </form>
+        <div id="loading" class="loading-anim" style="display:none;">
+            <div id="loading-text">Analyzing, Judging, thinking…</div>
+            <div class="bounce-dots">
+                <span class="dot" style="--i:0;"></span>
+                <span class="dot" style="--i:1;"></span>
+                <span class="dot" style="--i:2;"></span>
+                <span class="dot" style="--i:3;"></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="card-row">
+            <div class="card bubble">
+                <h3>📝 How It Works</h3>
+                <ol>
+                    <li>Upload your file</li>
+                    <li>AI reads and scribbles notes</li>
+                    <li>Get instant, actionable, and helpfull feedback</li>
+                </ol>
+            </div>
+            <div class="card bubble">
+                <h3>✨ Features</h3>
+                <ul>
+                    <li>ATS check, keyword boost 🚀</li>
+                    <li>Grammar & vibe analysis</li>
+                    <li>Custom summary in plain English</li>
+                    <li>Friendly, real suggestions</li>
+                </ul>
+            </div>
+        </section>
+        <section class="testimonial">
+            <div class="speech-bubble">
+                <strong>“It helped my friends, so I hope it helps you, too!”</strong>
+                <div>— Your developer, <span style="color:#6B5CFF;">Hardik Trikha</span></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-cartoon">😃👾🎒</div>
+        <small>© 2025 Resu.AI</small>
+    </footer>
+</body>
+
+<script>
+document.getElementById("resume-form").onsubmit = async function (e) {
+    e.preventDefault();
+    document.getElementById("loading").style.display = "block";
+
+    let formData = new FormData(this);
+    let response = await fetch("/analyze", {
+        method: "POST",
+        body: formData
+    });
+    let data = await response.json();
+    window.location.href = data.result_url;
+};
+</script>
+</html>

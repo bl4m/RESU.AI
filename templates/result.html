@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Resu.AI - Resume Analysis Result</title>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/result.css">
+</head>
+<body>
+    <div class="result-header">
+        <h1><span class="resu">Resu</span>.<span class="ai">AI</span></h1>
+        <h3>Your Personalized Resume Analysis</h3>
+    </div>
+    <div class="container">
+        <div class="section">
+            <strong>Extracted Highlights:</strong>
+            <ul class="highlight-list">
+                {% for item in result.highlights %}
+                <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="section">
+            <strong>Resume Rating:</strong>
+            <span class="rating-badge">{{ result.rating }}/10</span>
+        </div>
+        <div class="section">
+            <strong>Suggestions for Improvement:</strong>
+            {% for suggest_group in result.suggestions %}
+            <div class="suggest-section">
+                <strong>{{ suggest_group.section }}</strong>
+                <ul>
+                    {% for s in suggest_group.suggestions %}
+                    <li>{{ s }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="section summary">
+            <strong>Professional Summary:</strong>
+            <div>{{ result.summary }}</div>
+        </div>
+        {% if result.missing_skills and result.missing_skills|length > 0 %}
+        <div class="section missing-skills">
+            <strong>Missing Skills (compared to your target job):</strong>
+            <ul>
+                {% for skill in result.missing_skills %}
+                <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        <a class="back-btn" href="/">Analyze Another Resume</a>
+    </div>
+    {# Debug JSON during development #}
+    {# <pre>{{ result | tojson(indent=2) }}</pre> #}
+</body>
+</html>
