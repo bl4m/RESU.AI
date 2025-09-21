@@ -76,7 +76,7 @@ DON'TS
 
 """
 
-co = cohere.ClientV2("fSvyyIECZEzC4B43OU3uZdVElzL7R9tskWkcUeNS")
+co = cohere.ClientV2("<<client key>>")
 
 def analyze_resume(filename, target_job=None):
     with pdfplumber.open(f"static/temp/{filename}.pdf") as pdf:
@@ -94,5 +94,6 @@ def analyze_resume(filename, target_job=None):
     messages=[{"role":"system","content":prompt},{"role": "user", "content": user_prompt}],
     response_format={"type": "json_object"}
 )   
+
 
     return json.loads(json.loads(response.message.content[0].json())["text"])
